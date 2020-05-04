@@ -27,8 +27,25 @@
     </repeat>
 
     <repeat group="{{ @desserts }}" value="{{ @val }}" key="{{ @text }}" >
-        <input type="checkbox" value="{{ @val }}">{{ @text }}<br>
+        <input type="checkbox" value="{{ @text }}">{{ @val }}<br>
     </repeat>
+
+    <h2>Consitioinal Content</h2>
+    <check if="{{ @preferredCustomer }}">
+        <true>
+            <strong>Thank you!</strong>
+        </true>
+        <false>
+            <strong>You're missing out</strong>
+        </false>
+    </check>
+
+    <check if="{{ @lastLogin > strtotime('-1 month') }}" >
+
+        <true><p>Welcome back!</p></true>
+        <false><p>It's been awhile</p></false>
+    </check>
+
 
 </body>
 </html>
